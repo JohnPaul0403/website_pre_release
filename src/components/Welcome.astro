@@ -42,6 +42,13 @@ import background from '../assets/background.svg';
 </div>
 
 <style>
+	:root {
+		--color-primary: #EA580C;
+		--color-background: #F9FAFB;
+		--color-surface: #F8FAFC;
+		--color-text: #1F2937;
+	}
+
 	#background {
 		position: fixed;
 		top: 0;
@@ -49,12 +56,15 @@ import background from '../assets/background.svg';
 		width: 100%;
 		height: 100%;
 		z-index: -1;
+		background: linear-gradient(135deg, #eaecc6 0%, #2bc0e4 100%);
 		filter: blur(100px);
 	}
 
 	#container {
 		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
 		height: 100%;
+		background-color: var(--color-background);
+		color: var(--color-text);
 	}
 
 	main {
@@ -85,13 +95,13 @@ import background from '../assets/background.svg';
 		display: flex;
 		align-items: center;
 		padding: 10px 12px;
-		color: #111827;
+		color: var(--color-text);
 		text-decoration: none;
 		transition: color 0.2s;
 	}
 
 	#links a:hover {
-		color: rgb(78, 80, 86);
+		color: #2bc0e4;
 	}
 
 	#links a svg {
@@ -101,7 +111,7 @@ import background from '../assets/background.svg';
 
 	#links a.button {
 		color: white;
-		background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
+		background: var(--color-primary);
 		box-shadow:
 			inset 0 0 0 1px rgba(255, 255, 255, 0.12),
 			inset 0 -2px 0 rgba(0, 0, 0, 0.24);
@@ -109,7 +119,8 @@ import background from '../assets/background.svg';
 	}
 
 	#links a.button:hover {
-		color: rgb(230, 230, 230);
+		background: #c94f0b;
+		color: white;
 		box-shadow: none;
 	}
 
@@ -117,7 +128,7 @@ import background from '../assets/background.svg';
 		font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas,
 			'DejaVu Sans Mono', monospace;
 		font-weight: normal;
-		background: linear-gradient(14deg, #d83333 0%, #f041ff 100%);
+		background: linear-gradient(14deg, #2bc0e4 0%, #eaecc6 100%);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
@@ -127,7 +138,7 @@ import background from '../assets/background.svg';
 	h2 {
 		margin: 0 0 1em;
 		font-weight: normal;
-		color: #111827;
+		color: var(--color-text);
 		font-size: 20px;
 	}
 
@@ -142,8 +153,8 @@ import background from '../assets/background.svg';
 	code {
 		display: inline-block;
 		background:
-			linear-gradient(66.77deg, #f3cddd 0%, #f5cee7 100%) padding-box,
-			linear-gradient(155deg, #d83333 0%, #f041ff 18%, #f5cee7 45%) border-box;
+			linear-gradient(66.77deg, #eaecc6 0%, #2bc0e4 100%) padding-box,
+			linear-gradient(155deg, #eaecc6 0%, #2bc0e4 45%) border-box;
 		border-radius: 8px;
 		border: 1px solid transparent;
 		padding: 6px 8px;
@@ -151,7 +162,7 @@ import background from '../assets/background.svg';
 
 	.box {
 		padding: 16px;
-		background: rgba(255, 255, 255, 1);
+		background: var(--color-surface);
 		border-radius: 16px;
 		border: 1px solid white;
 	}
@@ -167,7 +178,7 @@ import background from '../assets/background.svg';
 	}
 
 	#news:hover {
-		background: rgba(255, 255, 255, 0.55);
+		background: rgba(248, 250, 252, 0.9);
 	}
 
 	@media screen and (max-height: 368px) {
