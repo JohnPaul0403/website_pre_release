@@ -14,13 +14,20 @@
 </header>
 
 <style>
+	:root {
+		--color-primary: #EA580C;
+		--color-background: #F9FAFB;
+		--color-surface: #F8FAFC;
+		--color-text: #1F2937;
+	}
+
 	.header {
 		position: fixed;
 		top: 0;
 		left: 0;
 		right: 0;
 		z-index: 1000;
-		background: rgba(255, 255, 255, 0.95);
+		background: rgba(249, 250, 251, 0.95); /* var(--color-background) with opacity */
 		backdrop-filter: blur(10px);
 		border-bottom: 1px solid rgba(229, 231, 235, 0.5);
 		transition: all 0.3s ease;
@@ -34,7 +41,7 @@
 	}
 
 	.logo h2 {
-		background: linear-gradient(135deg, #7c3aed 0%, #3b82f6 100%);
+		background: linear-gradient(135deg, #eaecc6 0%, #2bc0e4 100%);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
@@ -48,13 +55,13 @@
 	}
 
 	.nav-link {
-		color: #6b7280;
+		color: var(--color-text);
 		font-weight: 500;
 		transition: color 0.2s ease;
 	}
 
 	.nav-link:hover {
-		color: #7c3aed;
+		color: var(--color-primary);
 	}
 
 	@media (max-width: 768px) {
