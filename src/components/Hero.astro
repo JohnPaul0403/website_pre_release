@@ -41,14 +41,14 @@
 
 <style>
 	:root {
-		--color-primary: #EA580C;
-		--color-background: #F9FAFB;
-		--color-surface: #F8FAFC;
+		--color-accent-light: #eaecc6;
+		--color-accent-bright: #2bc0e4;
 		--color-text: #1F2937;
+		--color-text-light: #ffffff;
 	}
 
 	.hero {
-		background: linear-gradient(135deg, #eaecc6 0%, #2bc0e4 100%);
+		background: var(--color-accent-light);
 		padding: 120px 0 80px;
 		min-height: 100vh;
 		display: flex;
@@ -71,15 +71,12 @@
 	}
 
 	.gradient-text {
-		background: linear-gradient(135deg, #eaecc6 0%, #2bc0e4 100%);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
+		color: var(--color-accent-bright);
 	}
 
 	.hero-description {
 		font-size: 20px;
-		color: #4b5563;
+		color: var(--color-text);
 		margin-bottom: 32px;
 		line-height: 1.6;
 	}
@@ -91,8 +88,8 @@
 	}
 
 	.btn-primary {
-		background: var(--color-primary);
-		color: white;
+		background: var(--color-accent-bright);
+		color: var(--color-text-light);
 		padding: 12px 24px;
 		border: none;
 		border-radius: 8px;
@@ -101,22 +98,22 @@
 	}
 
 	.btn-primary:hover {
-		background: #c94f0b;
+		background: #22a5c2;
 	}
 
 	.btn-secondary {
 		background: transparent;
-		color: var(--color-primary);
+		color: var(--color-accent-bright);
 		padding: 12px 24px;
-		border: 2px solid var(--color-primary);
+		border: 2px solid var(--color-accent-bright);
 		border-radius: 8px;
 		cursor: pointer;
 		transition: background 0.3s, color 0.3s;
 	}
 
 	.btn-secondary:hover {
-		background: var(--color-primary);
-		color: white;
+		background: var(--color-accent-bright);
+		color: var(--color-text-light);
 	}
 
 	.hero-stats {
@@ -133,13 +130,13 @@
 	.stat-number {
 		font-size: 32px;
 		font-weight: 700;
-		color: var(--color-primary);
+		color: var(--color-accent-bright);
 		margin-bottom: 4px;
 	}
 
 	.stat-label {
 		font-size: 14px;
-		color: #4b5563;
+		color: var(--color-text);
 		font-weight: 500;
 	}
 
