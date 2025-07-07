@@ -1,0 +1,689 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const lastUpdated = 'July 3, 2025';
+
+const sections = [
+  {
+    id: 'acceptance',
+    title: 'Acceptance of Terms',
+    content: `By accessing and using QuantiFlow ("the Service"), you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service. Your continued use of the platform constitutes acceptance of these terms.`
+  },
+  {
+    id: 'description',
+    title: 'Service Description',
+    content: `QuantiFlow is a web-based platform that provides quantitative finance research tools, trading performance analysis, research collaboration features, and AI-powered research insights. The Service allows users to upload trading data, publish research, collaborate with other researchers, and access advanced analytics for investment research purposes.`
+  },
+  {
+    id: 'user-accounts',
+    title: 'User Accounts',
+    content: `To access certain features of the Service, you must register for an account. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account. You agree to notify us immediately of any unauthorized use of your account or any other breach of security.`
+  },
+  {
+    id: 'acceptable-use',
+    title: 'Acceptable Use Policy',
+    content: `You agree not to use the Service for any unlawful purpose or in any way that could damage, disable, overburden, or impair the Service. You may not attempt to gain unauthorized access to any part of the Service, other accounts, computer systems, or networks connected to the Service through hacking, password mining, or any other means.`
+  },
+  {
+    id: 'data-accuracy',
+    title: 'Data Accuracy and Disclaimers',
+    content: `While we strive to provide accurate and up-to-date information, QuantiFlow makes no warranties about the completeness, reliability, and accuracy of research data or analysis. Any action you take upon the information on this platform is strictly at your own risk, and we will not be liable for any losses and damages in connection with the use of our Service.`
+  },
+  {
+    id: 'intellectual-property',
+    title: 'Intellectual Property',
+    content: `The Service and its original content, features, and functionality are and will remain the exclusive property of QuantiFlow and its licensors. The Service is protected by copyright, trademark, and other laws. You retain ownership of your research content, but grant us a license to display and distribute it through our platform when you choose to publish it.`
+  }
+];
+---
+
+<Layout>
+  <Header />
+  <main class="terms-main">
+    <!-- Header Section -->
+    <section class="terms-header">
+      <div class="container">
+        <div class="header-content">
+          <a href="/" class="back-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 12H5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Back to Home
+          </a>
+          
+          <div class="header-info">
+            <div class="header-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="2"/>
+                <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="2"/>
+                <line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="2"/>
+                <line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="2"/>
+                <polyline points="10,9 9,9 8,9" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="header-text">
+              <h1 class="page-title">Terms of Service</h1>
+              <p class="last-updated">Last updated: {lastUpdated}</p>
+            </div>
+          </div>
+          
+          <p class="page-description">
+            Please read these Terms of Service carefully before using QuantiFlow. These terms govern your use of our quantitative finance research platform and constitute a legally binding agreement between you and us.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="terms-content">
+      <div class="container">
+        <!-- Table of Contents -->
+        <div class="toc-card">
+          <h2 class="toc-title">Table of Contents</h2>
+          <nav class="toc-nav">
+            {sections.map((section, index) => (
+              <a href={`#${section.id}`} class="toc-item">
+                <div class="toc-number">{index + 1}</div>
+                <span class="toc-text">{section.title}</span>
+              </a>
+            ))}
+          </nav>
+        </div>
+
+        <!-- Terms Sections -->
+        <div class="sections-container">
+          {sections.map((section, index) => (
+            <section id={section.id} class="terms-section">
+              <div class="section-header">
+                <div class="section-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 17h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <h2 class="section-title">{index + 1}. {section.title}</h2>
+              </div>
+              
+              <div class="section-content">
+                <p class="section-text">{section.content}</p>
+              </div>
+
+              {section.id === 'acceptable-use' && (
+                <div class="additional-content">
+                  <div class="prohibited-card">
+                    <div class="prohibited-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" stroke="currentColor" stroke-width="2"/>
+                        <line x1="12" y1="9" x2="12" y2="13" stroke="currentColor" stroke-width="2"/>
+                        <line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2"/>
+                      </svg>
+                    </div>
+                    <div class="prohibited-content">
+                      <h4 class="prohibited-title">Prohibited Activities Include:</h4>
+                      <ul class="prohibited-list">
+                        <li>Uploading malicious code or viruses</li>
+                        <li>Attempting to reverse engineer the platform</li>
+                        <li>Sharing account credentials with third parties</li>
+                        <li>Using the service for illegal trading activities</li>
+                        <li>Interfering with other users' access to the service</li>
+                        <li>Publishing false or misleading research</li>
+                        <li>Violating intellectual property rights</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {section.id === 'data-accuracy' && (
+                <div class="additional-content">
+                  <div class="disclaimer-card">
+                    <div class="disclaimer-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" stroke="currentColor" stroke-width="2"/>
+                        <line x1="12" y1="9" x2="12" y2="13" stroke="currentColor" stroke-width="2"/>
+                        <line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2"/>
+                      </svg>
+                    </div>
+                    <div class="disclaimer-content">
+                      <h4 class="disclaimer-title">Important Investment Disclaimer:</h4>
+                      <p class="disclaimer-text">
+                        QuantiFlow is for informational and research purposes only and does not constitute investment advice. 
+                        Past performance does not guarantee future results. All investments carry risk of loss, 
+                        and you should consult with a qualified financial advisor before making investment decisions. 
+                        The research and analysis provided on this platform should not be considered as recommendations 
+                        to buy or sell any securities.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {section.id === 'intellectual-property' && (
+                <div class="additional-content">
+                  <div class="ip-card">
+                    <h4 class="ip-title">Research Content Rights:</h4>
+                    <div class="ip-grid">
+                      <div class="ip-item">
+                        <h5 class="ip-item-title">Your Content</h5>
+                        <p class="ip-item-text">You retain ownership of your research, trading strategies, and analysis that you upload or create on the platform.</p>
+                      </div>
+                      <div class="ip-item">
+                        <h5 class="ip-item-title">Platform License</h5>
+                        <p class="ip-item-text">By publishing research, you grant us a license to display, distribute, and analyze your content through our platform features.</p>
+                      </div>
+                      <div class="ip-item">
+                        <h5 class="ip-item-title">AI Analysis</h5>
+                        <p class="ip-item-text">You consent to our AI systems analyzing your research to provide insights and summaries, while maintaining your ownership rights.</p>
+                      </div>
+                      <div class="ip-item">
+                        <h5 class="ip-item-title">Collaboration</h5>
+                        <p class="ip-item-text">When collaborating, you maintain rights to your contributions while granting access to collaborators as specified in project settings.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </section>
+          ))}
+
+          <!-- Additional Terms -->
+          <section class="terms-section">
+            <div class="section-header">
+              <div class="section-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </div>
+              <h2 class="section-title">7. Additional Terms</h2>
+            </div>
+            
+            <div class="additional-terms">
+              <div class="term-item">
+                <h3 class="term-title">Limitation of Liability</h3>
+                <p class="term-text">
+                  In no event shall QuantiFlow be liable for any indirect, incidental, special, 
+                  consequential, or punitive damages, including without limitation, loss of profits, 
+                  data, use, goodwill, or other intangible losses, resulting from your use of the Service. 
+                  Our total liability shall not exceed the amount paid by you for the Service in the 
+                  twelve months preceding the claim.
+                </p>
+              </div>
+
+              <div class="term-item">
+                <h3 class="term-title">Research Collaboration</h3>
+                <p class="term-text">
+                  When participating in research collaboration features, you agree to respect other 
+                  researchers' intellectual property and maintain professional conduct. Collaborative 
+                  research projects are subject to the terms agreed upon by all participants at the 
+                  time of project creation.
+                </p>
+              </div>
+
+              <div class="term-item">
+                <h3 class="term-title">Data Export and Portability</h3>
+                <p class="term-text">
+                  You have the right to export your research data and analysis at any time through 
+                  our data export features. Upon account termination, you will have 30 days to 
+                  download your data before it is permanently deleted from our systems.
+                </p>
+              </div>
+
+              <div class="term-item">
+                <h3 class="term-title">Modifications to Terms</h3>
+                <p class="term-text">
+                  We reserve the right to modify these terms at any time. We will notify users of any 
+                  material changes via email or through the Service. Your continued use of the Service 
+                  after such modifications constitutes acceptance of the updated terms.
+                </p>
+              </div>
+
+              <div class="term-item">
+                <h3 class="term-title">Governing Law</h3>
+                <p class="term-text">
+                  These Terms shall be interpreted and governed by the laws of the State of New York, 
+                  without regard to its conflict of law provisions. Any disputes arising from these 
+                  terms shall be resolved in the courts of New York.
+                </p>
+              </div>
+
+              <div class="term-item">
+                <h3 class="term-title">Contact Information</h3>
+                <p class="term-text">
+                  If you have any questions about these Terms of Service, please contact us at:
+                </p>
+                <div class="contact-info">
+                  <p class="contact-title">Aletheia Team</p>
+                  <p class="contact-detail">Email: legal@at-qt.com</p>
+                  <p class="contact-detail">Phone: +1 (728) 212-1754</p>
+                  <p class="contact-detail">Address: 390 NE 191st Street Florida, 33179 United States</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="cta-card">
+          <h3 class="cta-title">Ready to Start Your Research Journey?</h3>
+          <p class="cta-text">
+            Join to our newsletter to get update and early access to our platform, where you will be able to
+            get performance analysis, collaborate, and get research insights.
+          </p>
+          <a href="#contact" class="cta-button">
+            Get Started Today
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .terms-main {
+    padding-top: 60px;
+  }
+
+  .terms-header {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    padding: 80px 0;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #2bc0e4;
+    font-weight: 500;
+    margin-bottom: 32px;
+    transition: color 0.2s ease;
+  }
+
+  .back-link:hover {
+    color: #239ab7;
+  }
+
+  .header-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+
+  .header-icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #eaecc6 0%, #2bc0e4 100%);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
+  .page-title {
+    font-size: 36px;
+    color: #1e3a8a;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+
+  .last-updated {
+    color: #6b7280;
+    font-size: 16px;
+  }
+
+  .page-description {
+    font-size: 18px;
+    color: #6b7280;
+    line-height: 1.6;
+    max-width: 800px;
+  }
+
+  .terms-content {
+    padding: 80px 0;
+  }
+
+  .toc-card {
+    background: #fef3c7;
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 48px;
+  }
+
+  .toc-title {
+    font-size: 20px;
+    color: #1e3a8a;
+    margin-bottom: 24px;
+    font-weight: 600;
+  }
+
+  .toc-nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 12px;
+  }
+
+  .toc-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: white;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    border: 1px solid #fbbf24;
+  }
+
+  .toc-item:hover {
+    background: #fef3c7;
+    transform: translateX(4px);
+  }
+
+  .toc-number {
+    width: 24px;
+    height: 24px;
+    background: #f59e0b;
+    color: white;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .toc-text {
+    color: #374151;
+    font-weight: 500;
+  }
+
+  .sections-container {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .terms-section {
+    scroll-margin-top: 100px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .section-icon {
+    width: 48px;
+    height: 48px;
+    background: #fef3c7;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f59e0b;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-size: 28px;
+    color: #1e3a8a;
+    font-weight: 600;
+  }
+
+  .section-content {
+    margin-bottom: 24px;
+  }
+
+  .section-text {
+    color: #6b7280;
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  .additional-content {
+    margin-top: 24px;
+  }
+
+  .prohibited-card {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .prohibited-icon {
+    color: #dc2626;
+    flex-shrink: 0;
+  }
+
+  .prohibited-title {
+    color: #991b1b;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+
+  .prohibited-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .prohibited-list li {
+    color: #b91c1c;
+    font-size: 14px;
+    margin-bottom: 8px;
+    padding-left: 16px;
+    position: relative;
+  }
+
+  .prohibited-list li::before {
+    content: '•';
+    color: #dc2626;
+    position: absolute;
+    left: 0;
+  }
+
+  .disclaimer-card {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .disclaimer-icon {
+    color: #dc2626;
+    flex-shrink: 0;
+  }
+
+  .disclaimer-title {
+    color: #991b1b;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+
+  .disclaimer-text {
+    color: #b91c1c;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .ip-card {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .ip-title {
+    color: #1e3a8a;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+
+  .ip-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .ip-item {
+    background: white;
+    border-radius: 8px;
+    padding: 16px;
+    border: 1px solid #e5e7eb;
+  }
+
+  .ip-item-title {
+    color: #374151;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  .ip-item-text {
+    color: #6b7280;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .additional-terms {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .term-item {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #e5e7eb;
+  }
+
+  .term-title {
+    color: #1e3a8a;
+    margin-bottom: 12px;
+    font-weight: 600;
+    font-size: 18px;
+  }
+
+  .term-text {
+    color: #6b7280;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .contact-info {
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 12px;
+  }
+
+  .contact-title {
+    color: #1e3a8a;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .contact-detail {
+    color: #6b7280;
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+
+  .cta-card {
+    background: linear-gradient(135deg, #eaecc6 0%, #2bc0e4 100%);
+    border-radius: 20px;
+    padding: 48px;
+    text-align: center;
+    margin-top: 64px;
+  }
+
+  .cta-title {
+    color: white;
+    font-size: 28px;
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+
+  .cta-text {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 32px;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    background: white;
+    color: #2bc0e4;
+    padding: 16px 32px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+
+  .cta-button:hover {
+    background: #fbfbfb;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    .page-title {
+      font-size: 28px;
+    }
+
+    .header-info {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .toc-nav {
+      grid-template-columns: 1fr;
+    }
+
+    .section-header {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .section-title {
+      font-size: 24px;
+    }
+
+    .ip-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .prohibited-card,
+    .disclaimer-card {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .cta-card {
+      padding: 32px 24px;
+    }
+
+    .cta-title {
+      font-size: 24px;
+    }
+  }
+</style>
+</Layout>

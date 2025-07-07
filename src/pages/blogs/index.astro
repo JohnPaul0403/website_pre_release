@@ -1,0 +1,299 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/SecondaryHeader.astro';
+import Footer from '../../components/Footer.astro';
+import blogsData from '../../data/blogs.json';
+
+const { blogs } = blogsData;
+const featuredBlogs = blogs.filter(blog => blog.featured);
+const recentBlogs = blogs.slice(0, 6);
+---
+
+<Layout>
+	<Header />
+	<main class="blog-main">
+		<section class="blog-hero">
+			<div class="container">
+				<div class="hero-content">
+					<h1 class="hero-title">Development Blog</h1>
+					<p class="hero-description">
+                        Discover the latest updates from Aletheia and the most recently added features, get insights into our development process, and stay informed about our research progress.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="featured-section">
+			<div class="container">
+				<h2 class="section-title">Featured Blogs</h2>
+				<div class="featured-grid">
+					{featuredBlogs.map(blog => (
+						<article class="featured-card">
+							<div class="card-content">
+								<div class="card-meta">
+									<span class="author">{blog.author}</span>
+									<span class="date">{blog.date}</span>
+									<span class="read-time">{blog.readTime}</span>
+								</div>
+								<h3 class="card-title">
+									<a href={`/blogs/${blog.id}`}>{blog.title}</a>
+								</h3>
+								<p class="card-description">{blog.description}</p>
+								<div class="card-tags">
+									{blog.tags.map(tag => (
+										<span class="tag">{tag}</span>
+									))}
+								</div>
+								<a href={`/blogs/${blog.id}`} class="read-more">
+									Read Full Article
+									<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+										<path d="M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+									</svg>
+								</a>
+							</div>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="recent-section">
+			<div class="container">
+				<h2 class="section-title">Recent Blogs</h2>
+				<div class="recent-grid">
+					{recentBlogs.map(blog => (
+						<article class="recent-card">
+							<div class="card-meta">
+								<span class="author">{blog.author}</span>
+								<span class="date">{blog.date}</span>
+							</div>
+							<h3 class="card-title">
+								<a href={`/blogs/${blog.id}`}>{blog.title}</a>
+							</h3>
+							<p class="card-description">{blog.description}</p>
+							<div class="card-footer">
+								<div class="card-tags">
+									{blog.tags.slice(0, 2).map(tag => (
+										<span class="tag">{tag}</span>
+									))}
+								</div>
+								<span class="read-time">{blog.readTime}</span>
+							</div>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+	</main>
+	<Footer />
+</Layout>
+
+<style>
+	.blog-main {
+		padding-top: 60px;
+	}
+
+	.blog-hero {
+		background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+		padding: 80px 0;
+		text-align: center;
+	}
+
+	.hero-title {
+		font-size: 48px;
+		color: #2bc0e4;
+		margin-bottom: 24px;
+		font-weight: 700;
+	}
+
+	.hero-description {
+		font-size: 20px;
+		color: #6b7280;
+		max-width: 600px;
+		margin: 0 auto;
+		line-height: 1.6;
+	}
+
+	.featured-section,
+	.recent-section {
+		padding: 80px 0;
+	}
+
+	.section-title {
+		font-size: 36px;
+		color: #2bc0e4;
+		margin-bottom: 48px;
+		text-align: center;
+	}
+
+	.featured-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+		gap: 32px;
+	}
+
+	.featured-card {
+		background: white;
+		border-radius: 16px;
+		padding: 40px;
+		border: 1px solid #e5e7eb;
+		transition: all 0.3s ease;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.featured-card::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 4px;
+		background: linear-gradient(135deg, #eaecc6 0%, #2bc0e4 100%);
+	}
+
+	.featured-card:hover {
+		transform: translateY(-8px);
+		box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+	}
+
+	.card-meta {
+		display: flex;
+		gap: 16px;
+		margin-bottom: 16px;
+		font-size: 14px;
+		color: #6b7280;
+	}
+
+	.author {
+		font-weight: 500;
+		color: #2bc0e4;
+	}
+
+	.card-title {
+		font-size: 24px;
+		margin-bottom: 16px;
+		line-height: 1.3;
+	}
+
+	.card-title a {
+		color: #3b3c31;
+		transition: color 0.2s ease;
+	}
+
+	.card-title a:hover {
+		color: #eaecc6;
+	}
+
+	.card-description {
+		color: #6b7280;
+		margin-bottom: 24px;
+		line-height: 1.6;
+	}
+
+	.card-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+		margin-bottom: 24px;
+	}
+
+	.tag {
+		background: #f3f4f6;
+		color: #374151;
+		padding: 4px 12px;
+		border-radius: 20px;
+		font-size: 12px;
+		font-weight: 500;
+	}
+
+	.read-more {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		color: #2bc0e4;
+		font-weight: 500;
+		transition: all 0.2s ease;
+	}
+
+	.read-more:hover {
+		color: #24a4c4;
+	}
+
+	.read-more svg {
+		transition: transform 0.2s ease;
+	}
+
+	.read-more:hover svg {
+		transform: translateX(4px);
+	}
+
+	.recent-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+		gap: 24px;
+	}
+
+	.recent-card {
+		background: white;
+		border-radius: 12px;
+		padding: 32px;
+		border: 1px solid #e5e7eb;
+		transition: all 0.3s ease;
+	}
+
+	.recent-card:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+	}
+
+	.recent-card .card-title {
+		font-size: 20px;
+	}
+
+	.card-footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-top: 20px;
+	}
+
+	.recent-card .card-tags {
+		margin-bottom: 0;
+	}
+
+	.read-time {
+		color: #9ca3af;
+		font-size: 14px;
+	}
+
+	@media (max-width: 768px) {
+		.hero-title {
+			font-size: 36px;
+		}
+
+		.hero-description {
+			font-size: 18px;
+		}
+
+		.featured-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.recent-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.featured-card,
+		.recent-card {
+			padding: 24px;
+		}
+
+		.card-footer {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 12px;
+		}
+	}
+</style>

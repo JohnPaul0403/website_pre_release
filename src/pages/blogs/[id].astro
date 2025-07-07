@@ -1,0 +1,406 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/SecondaryHeader.astro';
+import Footer from '../../components/Footer.astro';
+import blogsData from '../../data/blogs.json';
+
+export async function getStaticPaths() {
+  const { blogs } = blogsData;
+  return blogs.map(blog => ({
+    params: { id: blog.id },
+    props: { blog }
+  }));
+}
+
+const { blog } = Astro.props;
+const { blogs } = blogsData;
+const relatedBlogs = blogs.filter(b => b.id !== blog.id).slice(0, 3);
+
+function renderParagraph(paragraph) {
+  let result = '';
+  
+  for (const [key, value] of Object.entries(paragraph)) {
+    if (key.startsWith('text')) {
+      result += value;
+    } else if (key === 'bold') {
+      result += `<strong>${value}</strong>`;
+    } else if (key === 'underlined') {
+      result += `<u>${value}</u>`;
+    }
+  }
+  
+  return result;
+}
+---
+
+<Layout>
+	<Header />
+	<main class="blog-post-main">
+		<article class="blog-post">
+			<div class="container">
+				<header class="post-header">
+					<div class="post-meta">
+						<span class="author">{blog.author}</span>
+						<span class="date">{blog.date}</span>
+						<span class="read-time">{blog.readTime}</span>
+					</div>
+					<h1 class="post-title">{blog.title}</h1>
+					<p class="post-description">{blog.description}</p>
+					<div class="post-tags">
+						{blog.tags.map(tag => (
+							<span class="tag">{tag}</span>
+						))}
+					</div>
+				</header>
+
+				<div class="post-content">
+					{Object.entries(blog.content).map(([key, value]) => {
+						if (key.startsWith('header_')) {
+							return <h2 class="content-header" set:html={value} />;
+						} else if (key.startsWith('paragraph_')) {
+							return <p class="content-paragraph" set:html={renderParagraph(value)} />;
+						}
+					})}
+				</div>
+
+				<footer class="post-footer">
+					<div class="author-info">
+						<div class="author-avatar">
+							{blog.author.split(' ').map(name => name[0]).join('')}
+						</div>
+						<div class="author-details">
+							<h3 class="author-name">{blog.author}</h3>
+							<p class="author-bio">{blog.author_tittle}</p>
+						</div>
+					</div>
+					<div class="post-actions">
+						<button class="action-btn">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+							Like
+						</button>
+						<button class="action-btn">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+								<path d="M13.73 21a2 2 0 0 1-3.46 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+							Share
+						</button>
+						<button class="action-btn">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7 7-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+							Save
+						</button>
+					</div>
+				</footer>
+			</div>
+		</article>
+
+		<section class="related-posts">
+			<div class="container">
+				<h2 class="section-title">Related Research</h2>
+				<div class="related-grid">
+					{relatedBlogs.map(relatedBlog => (
+						<article class="related-card">
+							<div class="card-meta">
+								<span class="author">{relatedBlog.author}</span>
+								<span class="date">{relatedBlog.date}</span>
+							</div>
+							<h3 class="card-title">
+								<a href={`/blogs/${relatedBlog.id}`}>{relatedBlog.title}</a>
+							</h3>
+							<p class="card-description">{relatedBlog.description}</p>
+							<div class="card-tags">
+								{relatedBlog.tags.slice(0, 2).map(tag => (
+									<span class="tag">{tag}</span>
+								))}
+							</div>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+	</main>
+	<Footer />
+</Layout>
+
+<style>
+	.blog-post-main {
+		padding-top: 60px;
+	}
+
+	.blog-post {
+		background: white;
+	}
+
+	.post-header {
+		text-align: center;
+		padding: 80px 0 60px;
+		background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+	}
+
+	.post-meta {
+		display: flex;
+		justify-content: center;
+		gap: 24px;
+		margin-bottom: 24px;
+		font-size: 14px;
+		color: #6b7280;
+	}
+
+	.author {
+		font-weight: 500;
+		color: #2bc0e4;
+	}
+
+	.post-title {
+		font-size: 48px;
+		color: #2c2c24;
+		margin-bottom: 24px;
+		font-weight: 700;
+		line-height: 1.2;
+		max-width: 800px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.post-description {
+		font-size: 20px;
+		color: #6b7280;
+		margin-bottom: 32px;
+		line-height: 1.6;
+		max-width: 600px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.post-tags {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 12px;
+	}
+
+	.tag {
+		background: white;
+		color: #374151;
+		padding: 8px 16px;
+		border-radius: 24px;
+		font-size: 14px;
+		font-weight: 500;
+		border: 1px solid #e5e7eb;
+	}
+
+	.post-content {
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 80px 0;
+		line-height: 1.8;
+	}
+
+	.content-header {
+		font-size: 32px;
+		margin: 48px 0 24px 0;
+		font-weight: 600;
+	}
+
+	.content-header:first-child {
+		margin-top: 0;
+	}
+
+	.content-paragraph {
+		font-size: 18px;
+		color: #374151;
+		margin-bottom: 32px;
+		line-height: 1.8;
+	}
+
+	.content-paragraph strong {
+		font-weight: 600;
+	}
+
+	.content-paragraph u {
+		color: #2bc0e4;
+		text-decoration-color: #2bc0e4;
+		text-decoration-thickness: 2px;
+		text-underline-offset: 3px;
+	}
+
+	.post-footer {
+		border-top: 1px solid #e5e7eb;
+		padding: 40px 0;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	.author-info {
+		display: flex;
+		align-items: center;
+		gap: 16px;
+	}
+
+	.author-avatar {
+		width: 56px;
+		height: 56px;
+		background: linear-gradient(135deg, #eaecc6 0%, #2bc0e4 100%);
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: white;
+		font-weight: 600;
+		font-size: 18px;
+	}
+
+	.author-name {
+		color: #1e3a8a;
+		margin-bottom: 4px;
+		font-size: 16px;
+	}
+
+	.author-bio {
+		color: #6b7280;
+		font-size: 14px;
+	}
+
+	.post-actions {
+		display: flex;
+		gap: 16px;
+	}
+
+	.action-btn {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		padding: 12px 20px;
+		background: #f9fafb;
+		border: 1px solid #e5e7eb;
+		border-radius: 8px;
+		color: #6b7280;
+		font-size: 14px;
+		font-weight: 500;
+		transition: all 0.2s ease;
+		cursor: pointer;
+	}
+
+	.action-btn:hover {
+		background: #2bc0e4;
+		color: white;
+		border-color: #2bc0e4;
+	}
+
+	.related-posts {
+		background: #f9fafb;
+		padding: 80px 0;
+	}
+
+	.section-title {
+		font-size: 36px;
+		margin-bottom: 48px;
+		text-align: center;
+	}
+
+	.related-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+		gap: 32px;
+	}
+
+	.related-card {
+		background: white;
+		border-radius: 12px;
+		padding: 32px;
+		border: 1px solid #e5e7eb;
+		transition: all 0.3s ease;
+	}
+
+	.related-card:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+	}
+
+	.related-card .card-meta {
+		display: flex;
+		gap: 16px;
+		margin-bottom: 16px;
+		font-size: 14px;
+		color: #6b7280;
+	}
+
+	.related-card .card-title {
+		font-size: 20px;
+		margin-bottom: 12px;
+		line-height: 1.3;
+	}
+
+	.related-card .card-title a {
+		transition: color 0.2s ease;
+	}
+
+	.related-card .card-title a:hover {
+		color: #2bc0e4;
+	}
+
+	.related-card .card-description {
+		color: #6b7280;
+		margin-bottom: 20px;
+		line-height: 1.6;
+		font-size: 16px;
+	}
+
+	.related-card .card-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+	}
+
+	.related-card .tag {
+		background: #f3f4f6;
+		padding: 4px 12px;
+		border-radius: 16px;
+		font-size: 12px;
+		border: none;
+	}
+
+	@media (max-width: 768px) {
+		.post-title {
+			font-size: 36px;
+		}
+
+		.post-description {
+			font-size: 18px;
+		}
+
+		.post-meta {
+			flex-direction: column;
+			gap: 8px;
+		}
+
+		.content-header {
+			font-size: 28px;
+		}
+
+		.content-paragraph {
+			font-size: 16px;
+		}
+
+		.post-footer {
+			flex-direction: column;
+			gap: 24px;
+			text-align: center;
+		}
+
+		.related-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.related-card {
+			padding: 24px;
+		}
+	}
+</style>
