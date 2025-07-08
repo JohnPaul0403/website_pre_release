@@ -1,0 +1,499 @@
+{
+  "documentation": {
+    "title": "Aletheia Documentation",
+    "description": "Complete guide to using Aletheia for quantitative finance research",
+    "lastUpdated": "2024-01-20",
+    "categories": [
+      {
+        "id": "getting-started",
+        "title": "Getting Started",
+        "icon": "rocket",
+        "description": "Learn the basics of Aletheia",
+        "sections": [
+          {
+            "id": "introduction",
+            "title": "Introduction to Aletheia",
+            "content": {
+              "overview": "Aletheia is a comprehensive platform designed for quantitative finance researchers to analyze trading performance, collaborate on research, and leverage AI-powered insights.",
+              "key_features": [
+                "Advanced performance metrics and analytics",
+                "Research collaboration and version control",
+                "AI-powered research summaries",
+                "Social platform for researchers",
+                "Real-time data processing"
+              ],
+              "who_should_use": "Aletheia is perfect for quantitative analysts, portfolio managers, academic researchers, trading firms, and individual traders looking to enhance their research capabilities."
+            }
+          },
+          {
+            "id": "quick-start",
+            "title": "Quick Start Guide",
+            "content": {
+              "overview": "Get up and running with Aletheia in just a few minutes.",
+              "steps": [
+                {
+                  "step": 1,
+                  "title": "Create Your Account",
+                  "description": "Sign up with your email and create a secure password. Verify your email to activate your account."
+                },
+                {
+                  "step": 2,
+                  "title": "Upload Your Data",
+                  "description": "Import your trading data using our CSV upload tool or connect directly to your broker's API."
+                },
+                {
+                  "step": 3,
+                  "title": "Analyze Performance",
+                  "description": "Use our built-in analytics to evaluate your trading strategies and identify areas for improvement."
+                },
+                {
+                  "step": 4,
+                  "title": "Share Research",
+                  "description": "Publish your findings to the research community and collaborate with other quantitative researchers."
+                }
+              ],
+              "estimated_time": "15 minutes"
+            }
+          },
+          {
+            "id": "system-requirements",
+            "title": "System Requirements",
+            "content": {
+              "overview": "Aletheia is a web-based platform that works on any modern device with internet access.",
+              "browser_support": [
+                "Chrome 90+ (Recommended)",
+                "Firefox 88+",
+                "Safari 14+",
+                "Edge 90+"
+              ],
+              "minimum_requirements": {
+                "ram": "4GB RAM",
+                "storage": "1GB free space for local data",
+                "internet": "Stable internet connection (10 Mbps recommended)",
+                "screen": "1280x720 minimum resolution"
+              },
+              "recommended_setup": {
+                "ram": "8GB+ RAM",
+                "storage": "5GB+ free space",
+                "internet": "50+ Mbps for optimal performance",
+                "screen": "1920x1080 or higher resolution"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "data-management",
+        "title": "Data Management",
+        "icon": "database",
+        "description": "Learn how to import, manage, and export your data",
+        "sections": [
+          {
+            "id": "data-import",
+            "title": "Importing Trading Data",
+            "content": {
+              "overview": "Aletheia supports multiple methods for importing your trading data, ensuring compatibility with most brokers and data providers.",
+              "supported_formats": [
+                "CSV files with standard trading columns",
+                "Excel spreadsheets (.xlsx, .xls)",
+                "JSON format for API integrations",
+                "Direct broker API connections"
+              ],
+              "required_columns": [
+                "Date/Time (ISO format recommended)",
+                "Symbol/Instrument",
+                "Action (Buy/Sell)",
+                "Quantity",
+                "Price",
+                "Commission (optional)"
+              ],
+              "import_process": [
+                "Navigate to Data Import section",
+                "Select your file format",
+                "Map columns to Aletheia fields",
+                "Review and validate data",
+                "Confirm import"
+              ]
+            }
+          },
+          {
+            "id": "data-validation",
+            "title": "Data Validation & Cleaning",
+            "content": {
+              "overview": "Our platform automatically validates and cleans your data to ensure accuracy in analysis.",
+              "validation_checks": [
+                "Date format consistency",
+                "Price and quantity validation",
+                "Duplicate trade detection",
+                "Missing data identification",
+                "Outlier detection"
+              ],
+              "cleaning_features": [
+                "Automatic duplicate removal",
+                "Missing data interpolation",
+                "Outlier flagging and correction",
+                "Currency conversion",
+                "Time zone standardization"
+              ],
+              "manual_review": "All automated changes are logged and can be reviewed or reverted through the Data History panel."
+            }
+          },
+          {
+            "id": "data-export",
+            "title": "Exporting Data & Reports",
+            "content": {
+              "overview": "Export your data and analysis results in various formats for external use or backup purposes.",
+              "export_formats": [
+                "CSV for spreadsheet applications",
+                "PDF reports for presentations",
+                "JSON for API integrations",
+                "Excel workbooks with multiple sheets"
+              ],
+              "exportable_data": [
+                "Raw trading data",
+                "Performance metrics",
+                "Risk analysis results",
+                "Research notes and annotations",
+                "Collaboration history"
+              ],
+              "scheduling": "Set up automated exports to run daily, weekly, or monthly and receive them via email."
+            }
+          }
+        ]
+      },
+      {
+        "id": "analytics",
+        "title": "Analytics & Metrics",
+        "icon": "chart",
+        "description": "Understand performance metrics and analytics tools",
+        "sections": [
+          {
+            "id": "performance-metrics",
+            "title": "Performance Metrics",
+            "content": {
+              "overview": "Aletheia provides comprehensive performance metrics to evaluate your trading strategies.",
+              "return_metrics": [
+                "Total Return: Overall profit/loss percentage",
+                "Annualized Return: Return adjusted for time period",
+                "Risk-Adjusted Return: Return per unit of risk taken",
+                "Benchmark Comparison: Performance vs market indices"
+              ],
+              "risk_metrics": [
+                "Sharpe Ratio: Risk-adjusted return measure",
+                "Maximum Drawdown: Largest peak-to-trough decline",
+                "Volatility: Standard deviation of returns",
+                "Value at Risk (VaR): Potential loss estimation"
+              ],
+              "efficiency_metrics": [
+                "Win Rate: Percentage of profitable trades",
+                "Profit Factor: Ratio of gross profit to gross loss",
+                "Average Trade: Mean profit/loss per trade",
+                "Trade Frequency: Number of trades per period"
+              ]
+            }
+          },
+          {
+            "id": "risk-analysis",
+            "title": "Risk Analysis Tools",
+            "content": {
+              "overview": "Advanced risk analysis tools to help you understand and manage portfolio risk.",
+              "risk_models": [
+                "Monte Carlo Simulation: Probability-based risk modeling",
+                "Stress Testing: Performance under extreme market conditions",
+                "Scenario Analysis: Impact of specific market events",
+                "Correlation Analysis: Relationship between assets"
+              ],
+              "risk_reports": [
+                "Daily Risk Summary",
+                "Portfolio Concentration Analysis",
+                "Sector/Geographic Exposure",
+                "Liquidity Risk Assessment"
+              ],
+              "alerts": "Set up custom risk alerts for drawdown limits, concentration thresholds, and volatility spikes."
+            }
+          },
+          {
+            "id": "backtesting",
+            "title": "Strategy Backtesting",
+            "content": {
+              "overview": "Test your trading strategies against historical data to evaluate their effectiveness.",
+              "backtesting_features": [
+                "Historical data spanning 10+ years",
+                "Multiple asset classes support",
+                "Transaction cost modeling",
+                "Slippage and market impact simulation"
+              ],
+              "strategy_types": [
+                "Technical indicator strategies",
+                "Fundamental analysis approaches",
+                "Machine learning models",
+                "Custom algorithmic strategies"
+              ],
+              "validation_methods": [
+                "Walk-forward analysis",
+                "Cross-validation techniques",
+                "Out-of-sample testing",
+                "Bootstrap resampling"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "collaboration",
+        "title": "Research Collaboration",
+        "icon": "users",
+        "description": "Collaborate with other researchers and manage projects",
+        "sections": [
+          {
+            "id": "research-projects",
+            "title": "Creating Research Projects",
+            "content": {
+              "overview": "Organize your research into projects and collaborate with team members or the community.",
+              "project_types": [
+                "Private: Personal research projects",
+                "Team: Collaborate with invited members",
+                "Public: Open to the research community",
+                "Academic: For educational institutions"
+              ],
+              "project_features": [
+                "Version control for research documents",
+                "Shared data repositories",
+                "Collaborative analysis tools",
+                "Discussion threads and comments"
+              ],
+              "getting_started": [
+                "Click 'New Project' in your dashboard",
+                "Choose project type and visibility",
+                "Add project description and objectives",
+                "Invite collaborators (if applicable)",
+                "Start uploading data and analysis"
+              ]
+            }
+          },
+          {
+            "id": "version-control",
+            "title": "Version Control & History",
+            "content": {
+              "overview": "Track changes to your research and collaborate effectively with built-in version control.",
+              "version_features": [
+                "Automatic saving of all changes",
+                "Detailed change history",
+                "Branching for experimental analysis",
+                "Merge conflict resolution"
+              ],
+              "collaboration_tools": [
+                "Real-time collaborative editing",
+                "Comment and suggestion system",
+                "Review and approval workflows",
+                "Change notifications"
+              ],
+              "best_practices": [
+                "Commit changes with descriptive messages",
+                "Create branches for major experiments",
+                "Review changes before merging",
+                "Use tags for important milestones"
+              ]
+            }
+          },
+          {
+            "id": "sharing-publishing",
+            "title": "Sharing & Publishing Research",
+            "content": {
+              "overview": "Share your research findings with the community and build your reputation as a quantitative researcher.",
+              "sharing_options": [
+                "Public research blog posts",
+                "Academic paper submissions",
+                "Conference presentation materials",
+                "Social media integration"
+              ],
+              "publication_process": [
+                "Prepare your research summary",
+                "Add visualizations and charts",
+                "Include methodology and data sources",
+                "Submit for community review",
+                "Publish to your research profile"
+              ],
+              "community_features": [
+                "Peer review system",
+                "Research rankings and ratings",
+                "Follow other researchers",
+                "Discussion forums"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "ai-features",
+        "title": "AI-Powered Features",
+        "icon": "brain",
+        "description": "Leverage artificial intelligence for research insights",
+        "sections": [
+          {
+            "id": "research-summaries",
+            "title": "AI Research Summaries",
+            "content": {
+              "overview": "Our AI system automatically generates summaries of complex quantitative finance research papers and analysis.",
+              "ai_capabilities": [
+                "Natural language processing of research papers",
+                "Key insight extraction",
+                "Methodology summarization",
+                "Results interpretation"
+              ],
+              "summary_features": [
+                "Executive summary generation",
+                "Key findings highlights",
+                "Methodology breakdown",
+                "Practical applications"
+              ],
+              "customization": [
+                "Adjust summary length and detail",
+                "Focus on specific aspects (methodology, results, etc.)",
+                "Generate summaries for different audiences",
+                "Export summaries in multiple formats"
+              ]
+            }
+          },
+          {
+            "id": "pattern-recognition",
+            "title": "Pattern Recognition",
+            "content": {
+              "overview": "AI-powered pattern recognition helps identify trading opportunities and market anomalies.",
+              "pattern_types": [
+                "Technical chart patterns",
+                "Market regime changes",
+                "Seasonal patterns",
+                "Cross-asset correlations"
+              ],
+              "machine_learning": [
+                "Supervised learning for strategy optimization",
+                "Unsupervised learning for anomaly detection",
+                "Reinforcement learning for adaptive strategies",
+                "Deep learning for complex pattern recognition"
+              ],
+              "implementation": [
+                "Real-time pattern scanning",
+                "Historical pattern backtesting",
+                "Pattern confidence scoring",
+                "Alert system for new patterns"
+              ]
+            }
+          },
+          {
+            "id": "predictive-analytics",
+            "title": "Predictive Analytics",
+            "content": {
+              "overview": "Use machine learning models to forecast market movements and optimize trading strategies.",
+              "prediction_models": [
+                "Time series forecasting",
+                "Volatility prediction",
+                "Trend continuation models",
+                "Mean reversion indicators"
+              ],
+              "model_types": [
+                "LSTM neural networks",
+                "Random forest algorithms",
+                "Support vector machines",
+                "Ensemble methods"
+              ],
+              "validation": [
+                "Cross-validation techniques",
+                "Out-of-sample testing",
+                "Model performance tracking",
+                "Prediction accuracy metrics"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "api-integration",
+        "title": "API & Integration",
+        "icon": "code",
+        "description": "Integrate Aletheia with external systems and tools",
+        "sections": [
+          {
+            "id": "rest-api",
+            "title": "REST API Documentation",
+            "content": {
+              "overview": "Aletheia provides a comprehensive REST API for integrating with external systems and automating workflows.",
+              "authentication": [
+                "API key authentication",
+                "OAuth 2.0 support",
+                "Rate limiting and quotas",
+                "Secure HTTPS endpoints"
+              ],
+              "endpoints": [
+                "GET /api/v1/trades - Retrieve trading data",
+                "POST /api/v1/trades - Upload new trades",
+                "GET /api/v1/analytics - Get performance metrics",
+                "POST /api/v1/research - Create research projects"
+              ],
+              "response_formats": [
+                "JSON (default)",
+                "XML for legacy systems",
+                "CSV for data exports",
+                "Custom formats available"
+              ]
+            }
+          },
+          {
+            "id": "broker-integration",
+            "title": "Broker Integration",
+            "content": {
+              "overview": "Connect directly to your broker's API for real-time data synchronization and automated trading.",
+              "supported_brokers": [
+                "Interactive Brokers",
+                "TD Ameritrade",
+                "E*TRADE",
+                "Charles Schwab",
+                "Alpaca",
+                "Custom broker APIs"
+              ],
+              "integration_features": [
+                "Real-time trade synchronization",
+                "Portfolio balance updates",
+                "Order execution capabilities",
+                "Market data streaming"
+              ],
+              "setup_process": [
+                "Generate API credentials with your broker",
+                "Configure connection in Aletheia settings",
+                "Test connection and permissions",
+                "Enable automatic synchronization"
+              ]
+            }
+          },
+          {
+            "id": "third-party-tools",
+            "title": "Third-Party Tool Integration",
+            "content": {
+              "overview": "Integrate Aletheia with popular trading and analysis tools to enhance your workflow.",
+              "supported_tools": [
+                "Python/Jupyter notebooks",
+                "R statistical software",
+                "MATLAB financial toolbox",
+                "Excel with Aletheia add-in",
+                "TradingView charts",
+                "Bloomberg Terminal"
+              ],
+              "integration_methods": [
+                "Direct API connections",
+                "Data export/import workflows",
+                "Real-time data streaming",
+                "Webhook notifications"
+              ],
+              "use_cases": [
+                "Custom analysis in Python/R",
+                "Advanced charting in TradingView",
+                "Automated reporting in Excel",
+                "Research collaboration tools"
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
