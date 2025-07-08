@@ -9,7 +9,7 @@
       "date": "2024-01-15",
       "readTime": "8 min read",
       "tags": ["momentum", "machine-learning", "quantitative-analysis"],
-      "featured": true,
+      "featured": false,
       "content": {
         "header_1": "Introduction to Modern Momentum Strategies",
         "paragraph_1": {
@@ -43,44 +43,100 @@
           "underlined": "more realistic performance expectations",
           "text_3": "."
         }
-      }
+      },
+      "like_count": 0
     },
     {
       "id": "2",
-      "title": "Leveraging Alternative Data for Alpha Generation",
-      "description": "How satellite imagery, social sentiment, and economic indicators can be combined to create robust trading signals in equity markets.",
-      "author": "Luciano Zeballos",
-      "author_tittle": "Lead Product Manager, Co-founder",
-      "date": "2024-01-05",
-      "readTime": "10 min read",
-      "tags": ["alternative-data", "alpha-generation", "sentiment-analysis"],
+      "title": "Building Aletheia: The Journey Behind Our Quant Research Platform",
+      "description": "A deep dive into the design and engineering process behind Aletheia, the collaborative platform for quantitative finance researchers.",
+      "author": "John Paul Paredes",
+      "author_tittle": "Lead Engineer, Co-founder",
+      "date": "2025-07-08",
+      "readTime": "7 min read",
+      "tags": ["startup", "development", "quant-platform", "astro", "javascript"],
       "featured": true,
       "content": {
-        "header_1": "The Alternative Data Revolution",
+        "header_1": "Why We Built Aletheia",
         "paragraph_1": {
-          "text": "Traditional financial data is becoming increasingly commoditized, leading quantitative researchers to explore ",
-          "bold": "alternative data sources",
-          "text_2": " for generating alpha. From ",
-          "underlined": "satellite imagery to social media sentiment",
-          "text_3": ", these unconventional datasets offer unique insights into market dynamics."
+          "text": "The idea for Aletheia came from our frustration with the lack of platforms where ",
+          "bold": "quant researchers",
+          "text_2": " could not only share their work but also collaborate, iterate, and gain insights from the community. We envisioned a tool that empowers users to maintain blogs, track research versions, and integrate ",
+          "underlined": "real-time trading metrics",
+          "text_3": " and AI summarization tools."
         },
-        "header_2": "Data Integration Challenges",
+        "header_2": "Designing the MVP",
         "paragraph_2": {
-          "text": "Successfully incorporating alternative data requires addressing ",
-          "bold": "data quality, latency, and survivorship bias",
-          "text_2": " issues. Our framework employs ",
-          "underlined": "robust preprocessing techniques",
-          "text_3": " to ensure data integrity and reliability in live trading environments."
+          "text": "We chose a lean development approach, starting with a minimal viable product focused on the core pain point: making ",
+          "bold": "quant research shareable and insightful",
+          "text_2": ". Built with ",
+          "underlined": "Astro, Tailwind, and Google Apps Script",
+          "text_3": ", the frontend features an elegant UI and smooth UX that reflects the analytical precision we aim to deliver."
         },
-        "header_3": "Performance Attribution",
+        "header_3": "Overcoming Technical Challenges",
         "paragraph_3": {
-          "text": "The multi-factor model incorporating alternative data sources achieved an ",
-          "bold": "information ratio of 1.8",
-          "text_2": " over the benchmark period. The ",
-          "underlined": "satellite-based agricultural data",
-          "text_3": " proved particularly valuable for commodity-related equity predictions."
+          "text": "One of the biggest challenges was integrating a dynamic contact and newsletter system into a static site architecture. Using ",
+          "bold": "Google Apps Script as a backend",
+          "text_2": ", we created an efficient pipeline to process contact forms and marketing signups with full error handling and success feedback. We also built the form UX to support ",
+          "underlined": "real-time loading states and inline messaging",
+          "text_3": " for a smooth user experience."
+        },
+        "header_4": "What Comes Next",
+        "paragraph_4": {
+          "text": "The next phase includes support for ",
+          "bold": "research uploads, AI-powered summaries, and version-controlled research posts",
+          "text_2": ". We're also planning deeper integrations with Notion, custom metric dashboards, and ",
+          "underlined": "real-time collaborative blogging",
+          "text_3": ". Our goal is to make Aletheia the home for every quant mind seeking to share and build breakthrough ideas."
         }
-      }
+      },
+      "like_count": 0
+    },
+    {
+      "id": "3",
+      "title": "Meet the Team Behind Aletheia",
+      "description": "Introducing the passionate individuals who are building the future of collaborative quant research.",
+      "author": "John Paul Paredes",
+      "author_tittle": "Lead Engineer, Co-founder",
+      "date": "2025-07-08",
+      "readTime": "5 min read",
+      "tags": ["team", "startup", "about-us", "founders", "aletheia"],
+      "featured": true,
+      "content": {
+        "header_1": "Our Founding Vision",
+        "paragraph_1": {
+          "text": "Aletheia started as a dream shared between friends who believed that ",
+          "bold": "finance and technology",
+          "text_2": " could be democratized through the right tools and collaboration. We’ve come together from different strengths to build something we believe will shape the future of ",
+          "underlined": "quantitative research",
+          "text_3": "."
+        },
+        "header_2": "John Paul Paredes – Engineer, Quant & Visionary",
+        "paragraph_2": {
+          "text": "I’m John Paul, a developer, quant researcher, and finance enthusiast. From a young age I’ve been driven by a need to understand how things work and how to make them better. With a strong passion for ",
+          "bold": "problem solving, markets, and AI",
+          "text_2": ", I’ve dedicated myself to building tools that empower other researchers like me. Aletheia is my way of giving back to a field that continuously challenges and inspires me.",
+          "underlined": "",
+          "text_3": ""
+        },
+        "header_3": "Luciano Zeballos – The Brainstormer with a Heart",
+        "paragraph_3": {
+          "text": "Luciano is more than just a co-founder — he’s been my best friend since childhood. A mind that never stops creating, he brings ",
+          "bold": "world-class communication and visionary ideas",
+          "text_2": " to the table. From naming key features to architecting big-picture strategy, Luciano keeps our project grounded in human connection and ",
+          "underlined": "clear communication with our users",
+          "text_3": "."
+        },
+        "header_4": "Our Designer – Visual Brilliance in Every Pixel",
+        "paragraph_4": {
+          "text": "Every visual element in Aletheia carries meaning, thanks to our ",
+          "bold": "incredibly talented graphic designer",
+          "text_2": ". With a deep understanding of branding and minimalistic UX, their contribution turns ideas into visuals that resonate with our community. Their work is what ",
+          "underlined": "transforms our code into a story",
+          "text_3": "."
+        }
+      },
+      "like_count": 0
     }
   ]
 }
