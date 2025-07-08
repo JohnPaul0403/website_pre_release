@@ -137,6 +137,46 @@
         }
       },
       "like_count": 0
+    },
+    {
+      "id": "4",
+      "title": "The Art of Storytelling",
+      "description": "How visual storytelling, typography, and color theory shape the soul of a fintech platform rooted in culture.",
+      "author": "Luciano Zeballos",
+      "author_tittle": "Lead Product Manager, Co-founder",
+      "date": "2025-07-07",
+      "readTime": "7 min read",
+      "tags": ["visual-design", "typography", "colour", "storytelling"],
+      "featured": true,
+      "content": {
+        "header_1": "When Data Meets Drawing",
+        "paragraph_1": {
+          "text": "Behind every line of code lives a creative choice. The identity of our platform, Aletheia, doesn't start with charts or metrics—it starts with ",
+          "bold": "a cartoon character with a big head and a long neck",
+          "text_2": " that invites users into a journey. Like the cover of a storybook, it sets the emotional tone for the trading experience, reminding us that finance isn’t sterile—it’s personal, cultural, and expressive."
+        },
+        "header_2": "Designing with Cultural Intent",
+        "paragraph_2": {
+          "text": "Our interface is a product of deliberate design—each color, shape, and word was influenced by the principles from ",
+          "bold": "Thinking Visually, Colour Workshop, and Thinking with Type",
+          "text_2": ". Rather than adopting generic fintech templates, we chose soft beiges, bright turquoise, and warm corals to reflect not just usability—but ",
+          "underlined": "belonging and human connection",
+          "text_3": "."
+        },
+        "header_3": "The Typography of Trust",
+        "paragraph_3": {
+          "text": "Inspired by Ellen Lupton’s work, we selected typography that feels accessible and supportive. The curves of Quicksand speak softly, never shouting at the reader. It’s a nod to the idea that ",
+          "bold": "trading should feel guided, not gamified",
+          "text_2": ", as we lean toward slower, more thoughtful design."
+        },
+        "header_4": "A Framework Rooted in Story",
+        "paragraph_4": {
+          "text": "This platform is a ritual—a first step, a cartoon-guided onboarding, a personal dashboard that grows with you. In a world rushing for precision, we pause for ",
+          "bold": "clarity with character",
+          "text_2": ". Because every user deserves a system that feels made not just by engineers, but by storytellers too."
+        }
+      },
+      "like_count": 0
     }
   ]
 }
