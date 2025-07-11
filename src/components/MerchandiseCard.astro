@@ -14,7 +14,7 @@ const { product } = Astro.props
                 <span class="product-price">${product.price}</span>
                 <div class="product-sizes">
                 <span class="size-label">Sizes:</span>
-                <span class="sizes">{product.sizes.map(value => (value))}</span>
+                <span class="sizes">{product.sizes.map((value: string) => (value))}</span>
             </div>
         </div>
         <button class="product-btn">
@@ -27,3 +27,108 @@ const { product } = Astro.props
         </button>
     </div>
 </div>
+
+<style>
+    .product-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+  }
+
+  .product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  .product-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .product-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #7c3aed;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .product-info {
+    padding: 24px;
+  }
+
+  .product-title {
+    font-size: 20px;
+    color: #1e3a8a;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  .product-description {
+    color: #6b7280;
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+
+  .product-details {
+    margin-bottom: 20px;
+  }
+
+  .product-price {
+    font-size: 24px;
+    color: #1e3a8a;
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .product-sizes {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+  }
+
+  .size-label {
+    color: #6b7280;
+    font-weight: 500;
+  }
+
+  .sizes {
+    color: #374151;
+  }
+
+  .product-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #eaecc6 0%, #2bc0e4 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .product-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
+  }
+</style>
